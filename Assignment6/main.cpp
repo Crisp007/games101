@@ -1,0 +1,47 @@
+#include "Renderer.hpp"
+#include "Scene.hpp"
+#include "Triangle.hpp"
+#include "Vector.hpp"
+#include "global.hpp"
+#include <chrono>
+#include <sys/time.h>
+
+// In the main function of the program, we create the scene (create objects and
+// lights) as well as set the options for the render (image width and height,
+// maximum recursion depth, field-of-view, etc.). We then call the render
+// function().
+int main(int argc, char** argv)
+{
+    Scene scene(1280, 960);
+
+    MeshTriangle bunny("../models/bunny/bunny.obj");
+
+    scene.Add(&bunny);
+    scene.Add(std::make_unique<Light>(Vector3f(-20, 70, 20), 1));
+    scene.Add(std::make_unique<Light>(Vector3f(20, 70, 20), 1));
+    scene.buildBVH();
+
+    Renderer r;
+
+    auto start = std::chrono::system_clock::now();
+
+    // struct timeval t_start, t_end;
+    // gettimeofday(&t_start, nullptr);
+
+    r.Render(scene);
+
+    // gettimeofday(&t_end, nullptr);
+    // long long total_ms = (t_end.tv_sec - t_start.tv_sec) * 1000LL + (t_end.tv_usec - t_end.tv_usec) / 1000;
+    
+    // printf("\n\nrender complete, total time: %lld ms\n", total_ms);
+
+    auto stop = std::chrono::system_clock::now();
+
+    std::cout << "\n\nRender complete: \n";
+    std::cout << "Time taken: " << std::chrono::duration_cast<std::chrono::hours>(stop - start).count() << " hours\n";
+    std::cout << "          : " << std::chrono::duration_cast<std::chrono::minutes>(stop - start).count() << " minutes\n";
+    std::cout << "          : " << std::chrono::duration_cast<std::chrono::seconds>(stop - start).count() << " seconds\n";
+    std::cout << "          : " << std::chrono::duration_cast<std::chrono::milliseconds>(stop - start).count() << " ms\n";
+
+    return 0;
+}
