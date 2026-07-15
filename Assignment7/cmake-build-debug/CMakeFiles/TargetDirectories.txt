@@ -1,0 +1,3 @@
+G:/自学作业项目/games101/mySolution/Assignment7/cmake-build-debug/CMakeFiles/RayTracing.dir
+G:/自学作业项目/games101/mySolution/Assignment7/cmake-build-debug/CMakeFiles/edit_cache.dir
+G:/自学作业项目/games101/mySolution/Assignment7/cmake-build-debug/CMakeFiles/rebuild_cache.dir
