@@ -1,6 +1,6 @@
 ### 1.spp512效果：
 
-![binary_512](/images/binary_512.png)
+![binary_512](images/binary_512.png)
 
 ### 2.多线程：
 
@@ -12,11 +12,11 @@
 
 粗糙表面alpha=0.9，ior=1.1（spp值低，噪点较多）
 
-![a0.9_ior1.1](/images/a0.9_ior1.1.png)
+![a0.9_ior1.1](images/a0.9_ior1.1.png)
 
 光滑表面alpha=0.01，ior=16效果（spp=512）：
 
-![a0.01_ior16](/images/a0.01_ior16.png)
+![a0.01_ior16](images/a0.01_ior16.png)
 
 ### 4.注意事项
 
